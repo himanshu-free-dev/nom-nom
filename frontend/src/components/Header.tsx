@@ -1,0 +1,18 @@
+import { Link } from 'react-router';
+
+const Header = () => {
+    return (
+        <div className="border-b-2 border-b-orange-400 py-5">
+            <div className="container mx-auto flex justify-between items-center">
+                <Link
+                    className="text-2xl font-bold tracking-tight text-orange-500"
+                    to="/"
+                >
+                    Nom Nom
+                </Link>
+            </div>
+        </div>
+    );
+};
+
+export default Header;
