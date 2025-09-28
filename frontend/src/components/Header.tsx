@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import MobileNav from './MobileNav';
 
 const Header = () => {
     return (
@@ -10,6 +11,10 @@ const Header = () => {
                 >
                     Nom Nom
                 </Link>
+
+                <div className="md:hidden">
+                    <MobileNav />
+                </div>
             </div>
         </div>
     );
