@@ -9,8 +9,12 @@ import {
 } from './ui/sheet';
 import { Separator } from './ui/separator';
 import { Button } from './ui/button';
+import { useAuth0 } from '@auth0/auth0-react';
+import MobileNavLinks from './MobileNavLinks';
 
 const MobileNav = () => {
+    const { loginWithRedirect, isAuthenticated } = useAuth0();
+
     return (
         <Sheet>
             <SheetTrigger>
@@ -21,9 +25,16 @@ const MobileNav = () => {
                     <SheetTitle>Welcome to Nom Nom</SheetTitle>
                     <Separator />
                     <SheetDescription className="flex">
-                        <Button className="flex-1 font-bold bg-orange-500">
-                            Login
-                        </Button>
+                        {isAuthenticated ? (
+                            <MobileNavLinks />
+                        ) : (
+                            <Button
+                                className="flex-1 font-bold bg-orange-500"
+                                onClick={() => loginWithRedirect()}
+                            >
+                                Login
+                            </Button>
+                        )}
                     </SheetDescription>
                 </SheetHeader>
             </SheetContent>
